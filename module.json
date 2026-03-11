@@ -12,14 +12,21 @@
       "name": "Traveller Action HUD"
     }
   ],
-  "esmodules": ["scripts/action-hud.js"],
-  "styles": ["styles/action-hud.css"],
+  "esmodules": [
+    "scripts/action-hud.js"
+  ],
+  "styles": [
+    "styles/action-hud.css"
+  ],
   "languages": [],
   "relationships": {
     "systems": [
       {
         "id": "mgt2e",
-        "type": "requires"
+        "compatibility": {
+          "minimum": "0.16",
+          "verified": "0.18"
+        }
       }
     ]
   },
