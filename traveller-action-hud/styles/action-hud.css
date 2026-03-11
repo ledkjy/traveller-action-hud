@@ -1,0 +1,321 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Traveller Action HUD — styles/action-hud.css
+   ───────────────────────────────────────────────────────────────────────────── */
+
+#traveller-action-hud {
+  position: fixed;
+  z-index: 70;
+  width: 270px;
+  font-family: "Signika", "Palatino Linotype", serif;
+  background: rgba(10, 12, 16, 0.93);
+  border: 1px solid rgba(255, 120, 0, 0.45);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 120, 0, 0.15);
+  color: #ddd;
+  user-select: none;
+  backdrop-filter: blur(4px);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: rgba(255, 120, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 120, 0, 0.3);
+  border-radius: 5px 5px 0 0;
+  cursor: grab;
+}
+
+.traveller-hud .hud-header:active {
+  cursor: grabbing;
+}
+
+.traveller-hud .hud-actor-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f90;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 160px;
+  letter-spacing: 0.5px;
+}
+
+.traveller-hud .hud-header-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.traveller-hud .hud-header-buttons button {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  padding: 2px 5px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.traveller-hud .hud-header-buttons button:hover {
+  background: rgba(255,120,0,0.2);
+  color: #f90;
+  border-color: rgba(255,120,0,0.5);
+}
+
+.traveller-hud .hud-header-buttons button.active {
+  background: rgba(255,120,0,0.3);
+  color: #f90;
+  border-color: rgba(255,120,0,0.6);
+}
+
+/* ─── Minimized state ────────────────────────────────────────────────────── */
+
+#traveller-action-hud.minimized .hud-body,
+#traveller-action-hud.minimized .hud-no-actor {
+  display: none;
+}
+
+#traveller-action-hud.minimized {
+  border-radius: 6px;
+}
+
+#traveller-action-hud.minimized .hud-header {
+  border-bottom: none;
+  border-radius: 5px;
+}
+
+/* ─── No actor state ─────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-no-actor {
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Tabs ───────────────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255,120,0,0.2);
+}
+
+.traveller-hud .hud-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  color: #888;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 4px;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+}
+
+.traveller-hud .hud-tab:last-child {
+  border-right: none;
+}
+
+.traveller-hud .hud-tab:hover {
+  background: rgba(255,120,0,0.1);
+  color: #ccc;
+}
+
+.traveller-hud .hud-tab.active {
+  background: rgba(255,120,0,0.15);
+  color: #f90;
+  border-bottom: 2px solid #f90;
+  margin-bottom: -1px;
+}
+
+/* ─── Panels ─────────────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-panels {
+  position: relative;
+}
+
+.traveller-hud .hud-panel {
+  display: none;
+  padding: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.traveller-hud .hud-panel.active {
+  display: block;
+}
+
+/* Scrollbar styling */
+.traveller-hud .hud-panel::-webkit-scrollbar {
+  width: 5px;
+}
+.traveller-hud .hud-panel::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+.traveller-hud .hud-panel::-webkit-scrollbar-thumb {
+  background: rgba(255,120,0,0.3);
+  border-radius: 3px;
+}
+
+/* ─── Action buttons ─────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.traveller-hud .hud-action-btn {
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+  justify-content: space-between;
+  padding: 5px 8px;
+  text-align: left;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  width: 100%;
+}
+
+.traveller-hud .hud-action-btn:hover {
+  background: rgba(255, 120, 0, 0.18);
+  border-color: rgba(255, 120, 0, 0.5);
+  color: #fff;
+}
+
+.traveller-hud .hud-action-btn:active {
+  background: rgba(255, 120, 0, 0.3);
+  transform: scale(0.98);
+}
+
+.traveller-hud .btn-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.traveller-hud .btn-value {
+  color: #f90;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.traveller-hud .btn-dm {
+  color: #999;
+  font-size: 10px;
+  font-family: monospace;
+  min-width: 22px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ─── Characteristic grid ────────────────────────────────────────────────── */
+
+.traveller-hud .hud-chars-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px !important;
+}
+
+.traveller-hud .hud-chars-grid .hud-action-btn {
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  gap: 1px;
+  justify-content: center;
+}
+
+.traveller-hud .hud-chars-grid .btn-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aaa;
+}
+
+.traveller-hud .hud-chars-grid .btn-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  min-width: unset;
+  text-align: center;
+}
+
+.traveller-hud .hud-chars-grid .btn-dm {
+  font-size: 11px;
+  color: #f90;
+  min-width: unset;
+  text-align: center;
+}
+
+/* ─── Empty state ────────────────────────────────────────────────────────── */
+
+.traveller-hud .hud-empty {
+  color: #666;
+  font-size: 11px;
+  font-style: italic;
+  padding: 8px 4px;
+  text-align: center;
+  margin: 0;
+}
+
+/* ─── Chat result tags ───────────────────────────────────────────────────── */
+
+.hud-result {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+.hud-result.success {
+  background: rgba(0, 200, 80, 0.2);
+  color: #4d4;
+  border: 1px solid rgba(0,200,80,0.3);
+}
+
+.hud-result.failure {
+  background: rgba(200, 50, 50, 0.2);
+  color: #d66;
+  border: 1px solid rgba(200,50,50,0.3);
+}
+
+.hud-result.exceptional-success {
+  background: rgba(0, 220, 220, 0.2);
+  color: #4ee;
+  border: 1px solid rgba(0,220,220,0.4);
+}
+
+.hud-result.exceptional-failure {
+  background: rgba(180, 0, 200, 0.2);
+  color: #d4d;
+  border: 1px solid rgba(180,0,200,0.35);
+}

@@ -1,0 +1,29 @@
+{
+  "id": "traveller-action-hud",
+  "title": "Traveller Action HUD",
+  "description": "A minimal Action HUD for quick access to skill checks, attribute checks, and weapon attacks in the Mongoose Traveller 2e system (mgt2e).",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Traveller Action HUD"
+    }
+  ],
+  "esmodules": ["scripts/action-hud.js"],
+  "styles": ["styles/action-hud.css"],
+  "languages": [],
+  "relationships": {
+    "systems": [
+      {
+        "id": "mgt2e",
+        "type": "requires"
+      }
+    ]
+  },
+  "url": "",
+  "manifest": "",
+  "download": ""
+}
