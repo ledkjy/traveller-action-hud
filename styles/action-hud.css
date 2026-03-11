@@ -319,3 +319,94 @@
   color: #d4d;
   border: 1px solid rgba(180,0,200,0.35);
 }
+
+/* ─── Skill groups (collapsible specialities) ────────────────────────────── */
+
+.traveller-hud .hud-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.traveller-hud .hud-skill-group-header {
+  display: flex;
+  gap: 3px;
+}
+
+/* The main skill roll button inside a group takes up most of the row */
+.traveller-hud .hud-skill-group-header .hud-group-roll {
+  flex: 1;
+}
+
+/* Expand / collapse toggle */
+.traveller-hud .hud-expand-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  color: #888;
+  cursor: pointer;
+  font-size: 9px;
+  padding: 0 6px;
+  flex-shrink: 0;
+  transition: background 0.12s, color 0.12s;
+  line-height: 1;
+}
+
+.traveller-hud .hud-expand-btn:hover {
+  background: rgba(255,120,0,0.18);
+  border-color: rgba(255,120,0,0.5);
+  color: #f90;
+}
+
+/* Speciality list — hidden by default */
+.traveller-hud .hud-spec-list {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255,120,0,0.25);
+  margin-left: 4px;
+}
+
+.traveller-hud .hud-skill-group.open .hud-spec-list {
+  display: flex;
+}
+
+/* Speciality buttons are slightly smaller / dimmer than top-level */
+.traveller-hud .hud-spec-btn {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: rgba(255,255,255,0.03);
+}
+
+.traveller-hud .hud-spec-btn:hover {
+  background: rgba(255,120,0,0.15);
+}
+
+.traveller-hud .btn-spec-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #bbb;
+  font-size: 11px;
+}
+
+/* ─── Weapon button skill sub-label ─────────────────────────────────────── */
+
+.traveller-hud .roll-weapon {
+  flex-wrap: wrap;
+  row-gap: 1px;
+}
+
+.traveller-hud .btn-sub {
+  flex-basis: 100%;
+  font-size: 10px;
+  color: #777;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 1px;
+}
